@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Base from '@/layouts/Base.astro';
+import BlogCard from '@/components/BlogCard.astro';
+
+
+// See /src/content.config.ts to change schema
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+
+<Base title='Blog' description='The blog homepage'>
+
+
+<div class="flex gap-2.5 p-2.5">
+{
+		posts.map((post) => (
+
+			<BlogCard title={post.data.title} content="hello" image={post.data.heroImage} href={`/blog/${post.id}/`} date={post.data.pubDate}/>
+		))
+	}
+
+	</div>
+				
+
+</Base>
+
