@@ -55,7 +55,6 @@ To use the theme, update the top of `/src/styles/daisy.css` to set it as either 
 
 If you are using the `ThemeToggle`, you need to also update `src/components/ThemeToggle.astro`.
 
-
 ### Folder structure
 
 Important folders:
@@ -70,6 +69,10 @@ Important folders:
 - `/src/content.config.ts`: this is where [collections](https://docs.astro.build/en/guides/content-collections/) are defined, so if you need to add fields you need to update this file and the tina config (below)
 - `/tina`: Contains the config for all of the local tina stuff (our "cms")
     - `/tina/config.ts`: Contains the important configuration for tina, see [https://tina.io/docs/tina-folder/overview](https://tina.io/docs/tina-folder/overview)
+
+### Deployment
+
+This repo comes with an automatic deployment system to github pages when changes are pushed to the main branch. The file for this configuration is found in `/.github/workflows/deploy.yml`
 
 
 ### Commands
