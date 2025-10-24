@@ -36,6 +36,7 @@ function RemoveDevAssetsIntegration() {
 export default defineConfig({
 	site: 'https://example.com', // TODO: update with domain when we have one
 	integrations: [mdx(), sitemap(), RemoveDevAssetsIntegration()],
+  base: '/astro-daisy/', // TODO: Change to either blank for base URL, or whatever your domain is proxied at
 	redirects: {
 		// Keep forgetting to add /index.html, so adding a redirect here
 		"/admin": "/admin/index.html",

@@ -10,10 +10,12 @@ Make sure you have npm installed, on first run you need to install dependencies 
 npm run dev
 ```
 
-You can then navigate to [http://localhost:4321](http://localhost:4321) to see the preview of the site, and [http://localhost:4321/admin](http://localhost:4321/admin) to edit content with [tina](https://tina.io/). For other commands see the [commands section](#commands)
+You can then navigate to [http://localhost:4321/astro-daisy](http://localhost:4321/astro-daisy) to see the preview of the site, and [http://localhost:4321/astro-daisy/admin](http://localhost:4321/astro-daisy/admin) to edit content with [tina](https://tina.io/). For other commands see the [commands section](#commands)
 
 
 ## Development Guide
+
+To start go into the `astro.config.mjs` and fill out any sections with `// todo` this includes setting your base URL and base paths. You should also setup the github workflow if you want to use it. You will ned a github PAT with `workflow` and `repo` permissions.
 
 ### Stack
 
