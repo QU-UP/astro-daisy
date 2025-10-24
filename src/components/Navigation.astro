@@ -2,6 +2,9 @@
 import { SITE_TITLE } from "@/consts";
 import ThemeToggle from "./ThemeToggle.astro";
 
+const base = import.meta.env.BASE_URL;
+
+
 const links = [
     {
         label: "About",
@@ -12,6 +15,16 @@ const links = [
         href: "/blog",
     },
 ];
+
+// Remove leading slash if base ends with /
+if (base.endsWith("/")) {
+    links.forEach(link => {
+        if (link.href.startsWith("/")) {
+            link.href = link.href.slice(1);
+        }
+    });
+}
+
 ---
 
 <nav class="w-full border-b">
@@ -19,7 +32,7 @@ const links = [
         <div class="flex justify-between h-16 items-center">
             <!-- Brand -->
             <div class="flex-shrink-0 flex items-center">
-                <a href="/" class="text-xl font-semibold tracking-tight"
+                <a href={`${base}/`} class="text-xl font-semibold tracking-tight"
                     >{SITE_TITLE}</a
                 >
             </div>
@@ -29,7 +42,7 @@ const links = [
                 {
                     links.map((link) => (
                         <a
-                            href={link.href}
+                            href={`${base}${link.href}`}
                             class="text-sm font-medium hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
                             {link.label}
@@ -67,7 +80,7 @@ const links = [
                         {
                             links.map((link) => (
                                 <a
-                                    href={link.href}
+                                    href={`${base}${link.href}`}
                                     class="block px-4 py-2 text-sm hover:bg-gray-50"
                                 >
                                     {link.label}
